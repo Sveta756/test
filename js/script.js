@@ -77,13 +77,17 @@ $(document).ready(function(){
       $('.overlay, #modal, #thanks').fadeOut();
       $('form')[0].reset();  //сбросить значения интуп при закрытии окна
       $('body').css('overflow', '');
+      $('input').val("");  
+      $('input').removeClass("success");  
     });
 
     // Клик по фону, но не по окну
     $('.overlay').click(function(e) {
       if ($(e.target).closest('#modal').length == 0) {
         $(this).fadeOut();	
-              $('form')[0].reset();				
+        $('form')[0].reset(); 
+        $('input').val("");  
+        $('input').removeClass("success");  
       }
     });
  
@@ -91,6 +95,9 @@ $(document).ready(function(){
     $(document).on('keydown', function(e) {
       if (e.keyCode == 27) {
          $('.overlay, #modal, #thanks').fadeOut();
+         $('form').trigger('reset');
+         $('input').val("");  
+        $('input').removeClass("success");  
       }
     });
 
@@ -134,6 +141,10 @@ $(document).ready(function(){
         },
     });
 
+    // if($('.modal__input').valid()) {
+    //   $(this).addClass('succes');
+    // }
+
     //при потере фокуса проходит проверка
     $('.modal__input').blur(function(){
         if(!$(this).valid()){
@@ -158,7 +169,8 @@ $(document).ready(function(){
     
     //проверка заполненности инпутов
     $('.modal__input').keyup(function() {
-      checkParams() ;
+      $(this).valid();
+      checkParams();
     });
 
     //проверка галки
@@ -175,7 +187,7 @@ $(document).ready(function(){
       $('.modal__submit').css('opacity', '0.2');
       $(this).find("textarea").val("");
       $('#modal').fadeOut();
-      $('#thanks').fadeIn('slow');
+      $('#thanks').fadeIn();
       $('form').trigger('reset'); //очищение формы       
     });
 
