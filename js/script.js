@@ -178,7 +178,7 @@ $(document).ready(function(){
       checkParams();
     });
       
-
+    //если форма отправилась
     $('form').submit(function(e) {
       $(this).find("input").val("");  
       $(this).find("input").removeClass('success'); 
@@ -187,8 +187,8 @@ $(document).ready(function(){
       $('.modal__submit').css('opacity', '0.2');
       $(this).find("textarea").val("");
       $('#modal').fadeOut();
-      $('#thanks').fadeIn();
-      $('form').trigger('reset'); //очищение формы       
+      $('.overlay, #thanks').fadeIn('slow');
+      $('form').trigger('reset');      
     });
 
   }); 
