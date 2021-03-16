@@ -59,7 +59,7 @@ $(document).ready(function(){
       $('.products, .next-block').css({
         height:  $(window).scrollTop() * 2
       });
-      $('.header').css('background', 'rgb(255, 255, 255)')
+      $('.header').css('background', 'rgb(255, 255, 255)');
     });
 
     //растягивание блока 
@@ -140,10 +140,6 @@ $(document).ready(function(){
             error.insertAfter($(element));
         },
     });
-
-    // if($('.modal__input').valid()) {
-    //   $(this).addClass('succes');
-    // }
 
     //при потере фокуса проходит проверка
     $('.modal__input').blur(function(){
