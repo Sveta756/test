@@ -60,8 +60,9 @@ $(document).ready(function(){
         height:  $(window).scrollTop() * 2
       });
       $('.header').css('background', 'rgb(255, 255, 255)');
-        
-        if ($(window).width() <= '540'){ 
+
+
+      if ($(window).width() <= '540'){ 
         $('.products').css({
           height:  $(window).scrollTop() * 10
         });
